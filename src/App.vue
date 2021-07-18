@@ -1,5 +1,5 @@
 <template>
-  <post-form />
+  <post-form  @create="createPost" />
   <post-list :posts="posts" />
 </template>
 
@@ -18,7 +18,11 @@ export default {
       body: "",
     };
   },
-  methods: {},
+  methods: {
+    createPost(post) {
+      this.posts.push(post)
+    }
+  },
 };
 </script>
 
@@ -29,7 +33,7 @@ export default {
   box-sizing: border-box;
 }
 body {
-  background: rgb(207, 190, 190);
+  background: #e2e2e2;
   padding: 20px;
 }
 </style>
