@@ -1,24 +1,27 @@
 <template>
   <form @submit.prevent>
     <h4>Создание поста</h4>
-    <input
+    <input-custom
       v-model="post.title"
-      class="input"
-      type="text"
       placeholder="Название"
-    />
-    <input
+     />
+    <input-custom 
       v-model="post.body"
-      class="input"
-      type="text"
       placeholder="Описание"
     />
-    <button class="create" @click="createPost">Создать</button>
+   
+    <!-- <button class="create" @click="createPost">Создать</button> -->
+    <button-custom class="post-btn" @click="createPost">
+      Создать
+    </button-custom>
   </form>
 </template>
 
 <script>
+import InputCustom from './UI/InputCustom.vue';
 export default {
+  components: { InputCustom },
+  
   data() {
     return {
       post: {
@@ -50,31 +53,9 @@ form {
 form h4 {
   margin-bottom: 10px;
 }
-.input {
-  padding: 15px 10px;
-  border-radius: 8px;
-  background: #fff;
-  outline: none;
-  border: none;
-  margin-bottom: 10px;
+
+.post-btn {
+  align-self: center;
 }
-.create {
-  background: #fff;
-  color: #6ea36e;
-  font-weight: bold;
-  padding: 10px;
-  width: 150px;
-  outline: none;
-  border: 1px solid #6ea36e;
-  border-radius: 8px;
-  cursor: pointer;
-  /* margin: 0 auto; */
-  align-self: flex-end;
-}
-.create:hover {
-  background: #6ea36e;
-  font-weight: bold;
-  color: #fff;
-  border: 1px solid #6ea36e;
-}
+
 </style>
